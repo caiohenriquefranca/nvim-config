@@ -231,7 +231,7 @@ Totalmente — substitua `vague.nvim` por outro.
 
 ## 📚 11. Créditos
 
-Criado por **Caio Henrique França**.
+Criado por **Caio Henrique França Valentim**.
 Inspirado em setups modernos para TypeScript, Python e produtividade com Neovim.
 **Em constante atualização**
 
