@@ -1,4 +1,4 @@
-# 📘 Documentação Completa — Configuração do Neovim (nvim-config)
+# 📘 Minhas configurações do Neovim (nvim-config)
 
 ![Interface do Neovim](https://drive.google.com/file/d/1UltFIwKaGci1mRa8JUwz7HPZjLN5wSgF/view?usp=sharing)
 
