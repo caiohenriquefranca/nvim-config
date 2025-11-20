@@ -1,9 +1,6 @@
 # 📘 Minhas configurações do Neovim (nvim-config)
 <img src="https://drive.google.com/file/d/1UltFIwKaGci1mRa8JUwz7HPZjLN5wSgF/view?usp=sharing" width="800" alt="Screenshot da Configuração">
 
-
-<!-- Substitua a imagem acima por um screenshot real da sua configuração -->
-
 Bem-vindo à documentação oficial da configuração **nvim-config**, uma personalização moderna, produtiva e minimalista do Neovim, criada para oferecer uma experiência semelhante ao VS Code, mas com toda a leveza e flexibilidade do Vim.
 
 Esta documentação cobre:
