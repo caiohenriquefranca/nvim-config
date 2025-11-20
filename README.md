@@ -1,7 +1,7 @@
-# 📘 Minhas configurações do Neovim (nvim-config)
+# Minhas configurações do Neovim (nvim-config)
 <img src="nvim.png" width="800" alt="Screenshot da Configuração">
 
-Bem-vindo à documentação oficial da configuração **nvim-config**, uma personalização moderna, produtiva e minimalista do Neovim, criada para oferecer uma experiência semelhante ao VS Code, mas com toda a leveza e flexibilidade do Vim.
+Bem-vindo à documentação oficial das minhas configurações **nvim-config**, uma personalização moderna, produtiva e minimalista do Neovim, criada para oferecer uma experiência semelhante ao VS Code, mas com toda a leveza e flexibilidade do Vim.
 
 Esta documentação cobre:
 
@@ -92,7 +92,7 @@ Contém toda a lógica da configuração organizada em módulos independentes.
 
 ---
 
-## 🧩 4. Plugins — Detalhamento Completo
+## 4. Plugins — Detalhamento Completo
 
 ### 4.1 Interface / UI
 
@@ -226,29 +226,6 @@ Sim, basta editar o `init.vim` ou os módulos em `lua/`.
 ### • Quero trocar o tema, é possível?
 
 Totalmente — substitua `vague.nvim` por outro.
-
----
-
-## 🧩 9. Personalização
-
-Sugestões:
-
-* Adicionar Telescope.nvim
-* Adicionar treesitter
-* Adicionar git signs
-* Integrar AI (Codeium, Copilot)
-* Criar snippets personalizados
-
----
-
-## 🧷 10. Atualizações
-
-Para atualizar sua versão:
-
-```
-cd ~/.config/nvim
-git pull
-```
 
 ---
 
