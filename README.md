@@ -1,6 +1,6 @@
 # 📘 Minhas configurações do Neovim (nvim-config)
+<img src="https://drive.google.com/file/d/1UltFIwKaGci1mRa8JUwz7HPZjLN5wSgF/view?usp=sharing" width="800" alt="Screenshot da Configuração">
 
-![Interface do Neovim](https://drive.google.com/file/d/1UltFIwKaGci1mRa8JUwz7HPZjLN5wSgF/view?usp=sharing)
 
 <!-- Substitua a imagem acima por um screenshot real da sua configuração -->
 
