@@ -1,240 +1,312 @@
-# Minhas configurações do Neovim (nvim-config)
-<img src="nvim.png" width="800" alt="Screenshot da Configuração">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>nvim-config — Documentação</title>
 
-Bem-vindo à documentação oficial das minhas configurações **nvim-config**, uma personalização moderna, produtiva e minimalista do Neovim, criada para oferecer uma experiência semelhante ao VS Code, mas com toda a leveza e flexibilidade do Vim.
+<style>
+/* ------------ RESET ------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-Esta documentação cobre:
+body {
+  display: flex;
+  background: #1e1e1e;
+  color: #ddd;
+}
 
-* Instalação e primeiros passos
-* Estrutura do projeto
-* Explicação detalhada dos plugins
-* Atalhos de teclado
-* Funcionalidades principais
-* Troubleshooting
-* FAQs
-* Como personalizar cada parte do setup
+/* ------------ SIDEBAR ------------ */
+aside {
+  width: 260px;
+  background: #151515;
+  height: 100vh;
+  padding: 25px;
+  position: fixed;
+  overflow-y: auto;
+  border-right: 1px solid #333;
+}
 
----
+aside h2 {
+  margin-bottom: 15px;
+  color: #fff;
+}
 
-## 📦 1. Introdução
+aside a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 14px;
+}
 
-A configuração **nvim-config** foi criada para desenvolvedores que buscam:
+aside a:hover {
+  color: #4bb2ff;
+}
 
-* Performance extrema (Neovim + Lua)
-* Autocompletar inteligente com LSP
-* Interface organizada e intuitiva
-* Ótima experiência para TypeScript, Python, Go, Rust e ML
-* Terminal integrado, tree view, bufferline e muito mais
+/* ------------ MAIN CONTENT ------------ */
+main {
+  margin-left: 280px;
+  padding: 40px;
+  width: calc(100% - 280px);
+}
 
-Esta documentação explica como usar, estender e manter essa configuração.
+main h1, main h2, main h3 {
+  margin-bottom: 12px;
+  color: #4bb2ff;
+}
 
----
+main p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
 
-## 🚀 2. Instalação
+code {
+  background: #2b2b2b;
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: #a3e7ff;
+}
 
-### 2.1 Pré‑requisitos
+pre {
+  background: #2b2b2b;
+  padding: 18px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
 
-Antes de instalar, garanta que seu sistema contém:
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+}
 
-```bash
-sudo apt update
+table th, table td {
+  border: 1px solid #555;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background: #2b2b2b;
+}
+
+/* Images */
+img {
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* ------------ HEADERS ------------ */
+.separator {
+  height: 2px;
+  background: #444;
+  margin: 25px 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============= SIDEBAR ============= -->
+<aside>
+  <h2>📘 Documentação</h2>
+  <a href="#intro">Introdução</a>
+  <a href="#install">Instalação</a>
+  <a href="#structure">Estrutura</a>
+  <a href="#plugins">Plugins</a>
+  <a href="#telescope">Busca (Telescope)</a>
+  <a href="#keys">Keybindings</a>
+  <a href="#config">Configurações Internas</a>
+  <a href="#troubleshooting">Troubleshooting</a>
+  <a href="#faq">FAQ</a>
+  <a href="#credits">Créditos</a>
+</aside>
+
+<!-- ============= MAIN CONTENT ============= -->
+<main>
+
+<h1>Minhas Configurações do Neovim (nvim-config)</h1>
+
+<img src="nvim.png" width="800" alt="Screenshot da Configuração do Neovim">
+<img src="nvim-tree.png" width="380" alt="NvimTree">
+<img src="lsp.png" width="380" alt="LSP">
+
+<div class="separator"></div>
+
+<!-- INTRO -->
+<h2 id="intro">1. Introdução</h2>
+<p>
+A configuração <strong>nvim-config</strong> é uma personalização moderna e minimalista 
+do Neovim, oferecendo uma experiência inspirada no VS Code, mas com toda a leveza e 
+velocidade do Vim.
+</p>
+
+<ul>
+  <li>Alto desempenho (Neovim + Lua)</li>
+  <li>Autocompletar avançado via LSP</li>
+  <li>Suporte nativo para TypeScript, Python, Go, Rust e ML</li>
+  <li>Telescope para busca instantânea</li>
+  <li>Terminal integrado, Bufferline e muito mais</li>
+</ul>
+
+<div class="separator"></div>
+
+<!-- INSTALL -->
+<h2 id="install">2. Instalação</h2>
+
+<h3>2.1 Pré-requisitos</h3>
+<pre><code>sudo apt update
 sudo apt install git curl neovim
-```
+</code></pre>
 
-### 2.2 Instalação Automática
-
-Clone o repositório e execute:
-
-```bash
-git clone https://github.com/caiohenriquefranca/nvim-config.git ~/nvim-config
+<h3>2.2 Instalação Automática</h3>
+<pre><code>git clone https://github.com/caiohenriquefranca/nvim-config.git ~/nvim-config
 cd ~/nvim-config
 ./install.sh
-```
+</code></pre>
 
-### 2.3 O Script Realiza:
+<h3>2.3 Dependências para busca (Telescope)</h3>
+<pre><code>sudo apt install ripgrep fd-find
+mkdir -p ~/.local/bin
+ln -s $(which fdfind) ~/.local/bin/fd
+</code></pre>
 
-* Backup de `~/.config/nvim` e `~/.local/share/nvim`
-* Instala a nova estrutura de configuração
-* Instala dependências do sistema (como `golang-go`)
-* Executa `PlugInstall` e `MasonInstallAll`
+<div class="separator"></div>
 
-Para iniciar:
+<!-- STRUCTURE -->
+<h2 id="structure">3. Estrutura da Configuração</h2>
 
-```
-nvim
-```
-
----
-
-## 📁 3. Estrutura da Configuração
-
-A estrutura segue boas práticas do ecossistema Neovim:
-
-```
-~/.config/nvim/
-├── init.vim                     # Arquivo principal
+<pre><code>~/.config/nvim/
+├── init.vim
 ├── lua/
-│   ├── bufferline_config.lua
-│   ├── explorer.lua
-│   ├── lsp_config.lua          # Core das LSPs e autocomplete
-│   ├── lualine_config.lua
-│   └── terminal_config.lua
-└── install.sh                   # Instalador automático
-```
+│   ├── bufferline_config.lua
+│   ├── explorer.lua
+│   ├── lsp_config.lua
+│   ├── lualine_config.lua
+│   ├── terminal_config.lua
+│   ├── telescope_config.lua
+└── install.sh
+</code></pre>
 
-### 3.1 init.vim
+<div class="separator"></div>
 
-Responsável por carregar plugins, configurar opções base e chamar módulos Lua.
+<!-- PLUGINS -->
+<h2 id="plugins">4. Plugins — Detalhamento Completo</h2>
 
-### 3.2 Pasta `lua/`
+<h3>Interface / UI</h3>
+<table>
+<tr><th>Função</th><th>Plugin</th></tr>
+<tr><td>Tema</td><td>vague.nvim</td></tr>
+<tr><td>Statusline</td><td>lualine.nvim</td></tr>
+<tr><td>Buffers</td><td>bufferline.nvim</td></tr>
+</table>
 
-Contém toda a lógica da configuração organizada em módulos independentes.
+<h3>LSP e Autocomplete</h3>
+<table>
+<tr><th>Função</th><th>Plugin</th></tr>
+<tr><td>Gerenciador LSP</td><td>mason.nvim</td></tr>
+<tr><td>Configuração LSP</td><td>nvim-lspconfig</td></tr>
+<tr><td>Autocomplete</td><td>nvim-cmp</td></tr>
+<tr><td>Snippets</td><td>LuaSnip + friendly-snippets</td></tr>
+</table>
 
----
+<h3>Navegação</h3>
+<table>
+<tr><th>Plugin</th><th>Função</th></tr>
+<tr><td>nvim-tree.lua</td><td>Explorer</td></tr>
+<tr><td>bufferline.nvim</td><td>Buffers</td></tr>
+</table>
 
-## 4. Plugins — Detalhamento Completo
+<div class="separator"></div>
 
-### 4.1 Interface / UI
+<!-- TELESCOPE -->
+<h2 id="telescope">5. Sistema de Busca (Telescope)</h2>
 
-| Função     | Plugin          | Descrição                    |
-| ---------- | --------------- | ---------------------------- |
-| Tema       | vague.nvim      | Tema moderno e leve          |
-| Statusline | lualine.nvim    | Barra inferior personalizada |
-| Bufferline | bufferline.nvim | Exibe buffers como abas      |
+<h3>Resumo da Implementação</h3>
+<ul>
+  <li>Utiliza <strong>telescope.nvim</strong> como fuzzy finder principal.</li>
+  <li>Integração com <code>ripgrep</code> e <code>fd</code> para máxima performance.</li>
+  <li>Extensão <code>telescope-fzf-native</code> para filtragem instantânea.</li>
+  <li>Configuração modular em <code>lua/telescope_config.lua</code>.</li>
+</ul>
 
-### 4.2 LSP e Autocompletar
+<h3>Atalhos da Busca</h3>
+<table>
+<tr><th>Atalho</th><th>Ação</th></tr>
+<tr><td>&lt;Leader&gt;ff</td><td>Buscar arquivos</td></tr>
+<tr><td>&lt;Leader&gt;fg</td><td>Live Grep – buscar texto</td></tr>
+<tr><td>&lt;Leader&gt;fG</td><td>Buscar a palavra sob o cursor</td></tr>
+<tr><td>*</td><td>Realçar palavra no buffer</td></tr>
+</table>
 
-| Função                     | Plugin                      |
-| -------------------------- | --------------------------- |
-| Gerenciador de pacotes LSP | mason.nvim                  |
-| Cliente LSP                | nvim-lspconfig              |
-| Autocomplete               | nvim-cmp                    |
-| Snippets                   | LuaSnip + friendly-snippets |
+<div class="separator"></div>
 
-LSPs instalados automaticamente:
+<!-- KEYS -->
+<h2 id="keys">6. Atalhos de Teclado (Keybindings)</h2>
 
-* ts_ls
-* pyright
-* rust-analyzer
-* gopls
-* html / cssls
-* lua_ls
+<table>
+<tr><th>Atalho</th><th>Ação</th></tr>
+<tr><td>&lt;Leader&gt;e</td><td>Abrir o Explorer</td></tr>
+<tr><td>&lt;Leader&gt;t</td><td>Terminal integrado</td></tr>
+<tr><td>Ctrl + h</td><td>Buffer anterior</td></tr>
+<tr><td>Ctrl + l</td><td>Próximo buffer</td></tr>
+<tr><td>Tab / Shift+Tab</td><td>Navegar autocomplete</td></tr>
+<tr><td>Enter</td><td>Confirmar sugestão</td></tr>
+</table>
 
-### 4.3 Navegação
-
-| Plugin          | Função            |
-| --------------- | ----------------- |
-| nvim-tree.lua   | Explorer moderno  |
-| bufferline.nvim | Gestão de buffers |
-
-### 4.4 Edição
-
-| Plugin     | Função                        |
-| ---------- | ----------------------------- |
-| mini.pairs | Auto-fechamento de parênteses |
-
-### 4.5 Terminal integrado
-
-Implementado com função Lua `toggle_terminal()`.
-
----
-
-## ⌨️ 5. Atalhos de Teclado (Keybindings)
-
-A **tecla líder** é a barra de espaço (`<Leader>`).
-
-| Atalho            | Ação                                   |
-| ----------------- | -------------------------------------- |
-| `<Leader>e`       | Abre/Fecha o explorer (NvimTreeToggle) |
-| `<Leader>t`       | Terminal integrado toggle              |
-| `Ctrl + h`        | Buffer anterior                        |
-| `Ctrl + l`        | Próximo buffer                         |
-| `Tab / Shift+Tab` | Navegação no autocomplete              |
-| `Enter`           | Confirmar sugestão do autocomplete     |
-
----
-
-## 🔧 6. Configurações Internas
-
-### 6.1 LSP (lsp_config.lua)
-
-Inclui:
-
-* Keymaps LSP
-* Diagnósticos visuais
-* Configuração de servidores
-* Integração com nvim-cmp
-
-### 6.2 Explorador (explorer.lua)
-
-* Auto open
-* Ícones
-* Sync com diretório
-
-### 6.3 Terminal (terminal_config.lua)
-
-Atalhos e criação de terminal em split inferior.
-
----
-
-## 🛠️ 7. Troubleshooting
-
-### 7.1 Plugins não carregam
-
-Execute:
-
-```
-:PlugInstall
-```
-
-### 7.2 LSP não inicia
-
-Abra o Mason:
-
-```
-:Mason
-```
-
-E instale o servidor da linguagem.
-
-### 7.3 Erro ao iniciar o Neovim
-
-Alguns casos resolvem limpando o cache:
-
-```
-rm -rf ~/.local/share/nvim
-```
-
-Reinstale com o script.
-
----
-
-## ❓ 8. FAQ
-
-### • Posso usar no Windows?
-
-Sim, com WSL2.
-
-### • Funciona no Mac?
-
-Sim — apenas instale o Homebrew + Neovim.
-
-### • Posso mudar atalhos?
-
-Sim, basta editar o `init.vim` ou os módulos em `lua/`.
-
-### • Quero trocar o tema, é possível?
-
-Totalmente — substitua `vague.nvim` por outro.
-
----
-
-## 📚 11. Créditos
-
-Criado por **Caio Henrique França Valentim**.
-Inspirado em setups modernos para TypeScript, Python e produtividade com Neovim.
-**Em constante atualização**
-
----
+<div class="separator"></div>
 
 
+<!-- INTERNAL CONFIG -->
+<h2 id="config">7. Configurações Internas</h2>
+
+<ul>
+  <li><strong>LSP:</strong> keymaps, diagnósticos, servidores e nvim-cmp.</li>
+  <li><strong>Explorer:</strong> auto-open, ícones, sync de diretório.</li>
+  <li><strong>Terminal:</strong> split inferior automático.</li>
+  <li><strong>Telescope:</strong> filtros, previews, mapeamentos.</li>
+</ul>
+
+<div class="separator"></div>
+
+<!-- TROUBLESHOOTING -->
+<h2 id="troubleshooting">8. Troubleshooting</h2>
+
+<h3>Plugins não carregam</h3>
+<pre><code>:PlugInstall</code></pre>
+
+<h3>LSP não inicia</h3>
+<pre><code>:Mason</code></pre>
+
+<h3>Erro ao iniciar</h3>
+<pre><code>rm -rf ~/.local/share/nvim</code></pre>
+
+<div class="separator"></div>
+
+<!-- FAQ -->
+<h2 id="faq">9. FAQ</h2>
+
+<p><strong>Funciona no Windows?</strong> Sim, via WSL2.</p>
+<p><strong>Funciona no macOS?</strong> Totalmente.</p>
+<p><strong>Posso mudar atalhos?</strong> Sim, via módulos Lua.</p>
+<p><strong>Posso trocar o tema?</strong> Sim, no módulo de UI.</p>
+
+<div class="separator"></div>
+
+<!-- CREDITS -->
+<h2 id="credits">10. Créditos</h2>
+<p>
+Criado por <strong>Caio Henrique França Valentim</strong>.<br>
+Setup em constante evolução.
+</p>
+
+</main>
+</body>
+</html>
