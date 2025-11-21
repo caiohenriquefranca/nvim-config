@@ -13,7 +13,12 @@ tnoremap <Esc> <C-\><C-n> " Sai do modo de terminal pressionando Esc
 " Definição do vim-plug
 call plug#begin('~/.local/share/nvim/site/plugged')
 
-" Plugins
+"  Plugins
+
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
+Plug 'nvim-lua/plenary.nvim' " Dependência necessária para o Telescope
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'vague2k/vague.nvim'
@@ -40,6 +45,7 @@ Plug 'rafamadriz/friendly-snippets'
 " O bloco de plugins deve terminar aqui
 call plug#end()
 
+
 " Configurações em Lua para os plugins devem vir depois
 lua require('mason-config')
 lua require('explorer')
@@ -47,6 +53,7 @@ lua require('lsp_config')
 lua require('terminal_config')
 lua require('lualine_config')
 lua require('bufferline_config')
+lua require('telescope_config')
 
 set number
 
