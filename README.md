@@ -69,9 +69,6 @@ cd ~/nvim-config
 <hr>
 
 <h2 class="section">🔍 4. Busca de Arquivos e Texto (Telescope)</h2>
-
-<h3><strong>Resumo da Implementação</strong></h3>
-
 <ul>
 <li><strong>Plugin Principal:</strong> telescope.nvim — fuzzy finder moderno do Neovim</li>
 <li><strong>Performance:</strong> ripgrep + fd garantindo buscas instantâneas</li>
