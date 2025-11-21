@@ -3,69 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Documentação — nvim-config</title>
-
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        max-width: 900px;
-        margin: 20px auto;
-        background: #f5f5f5;
-        color: #222;
-        padding: 20px;
-        line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-        color: #111;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 4px;
-    }
-
-    img {
-        width: 100%;
-        border-radius: 6px;
-        margin-bottom: 20px;
-    }
-
-    code {
-        background: #eee;
-        padding: 3px 5px;
-        border-radius: 4px;
-    }
-
-    pre {
-        background: #272822;
-        color: #f8f8f2;
-        padding: 14px;
-        border-radius: 6px;
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 14px 0;
-    }
-    table th, table td {
-        border: 1px solid #ccc;
-        padding: 8px;
-    }
-    table th {
-        background: #e2e2e2;
-    }
-
-    .tag {
-        background: #222;
-        color: #fff;
-        padding: 3px 8px;
-        border-radius: 4px;
-    }
-
-    .section {
-        margin-top: 30px;
-    }
-</style>
+<h1>Documentação — nvim-config</title>
 
 </head>
 <body>
